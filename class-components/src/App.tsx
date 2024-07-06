@@ -9,10 +9,20 @@ class Header extends React.Component {
     super(props)
     this.state ={
       randomPokemon: "",
+      query: "",
+      answer: ""
     }
+
+    this.search = this.search.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.getRandomPokemon();
   }
 
   random = Math.floor(Math.random() * (898 - 1 + 1)) + 1;
+
 
   getRandomPokemon() {
     fetch(`https://pokebuildapi.fr/api/v1/pokemon/${this.random}`)
@@ -23,9 +33,36 @@ class Header extends React.Component {
           this.setState({ randomPokemon: result})
       });
   }
+
+  getPokemonById(id) {
+    fetch(`https://pokebuildapi.fr/api/v1/pokemon/${id}`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(result => {
+          this.setState({ answer: result})
+      });
+  }
+
+  handleChange(event) {
+    this.setState({ query: event.target.value }, () => {
+      this.search();
+    });
+  }
+
+  search(){
+    const query = this.state.query.trim();
+    if(query.length){
+      const regex = /\d/g;
+      if(query.length === query.replace(regex, query).length){
+        if(Number(query) > 0 && Number(query) < 899)
+          this.getPokemonById(Number(query));
+          this.props.onHeaderClick(this.state.answer);
+      }
+    }
+    
+  }
   render() {
-    this.getRandomPokemon();
-    console.log(String(this.state.randomPokemon.name))
       return (
         <header className="header">
         <h1 className="header__head">Ваш случайный покемон:</h1>
@@ -57,10 +94,10 @@ class Header extends React.Component {
             </div>
         </div>
 
-        <form action="" className="header__form">
-          <input type="text" className="header__search"/>
-          <button className="header__button"></button>
-        </form>
+        <div className="header__form">
+          <input type="text" className="header__search" onChange={this.handleChange}/>
+          <button className="header__button"  onClick = {this.search}></button>
+        </div>
         <div className="header__guide guide">
         </div>
       </header>
@@ -68,11 +105,60 @@ class Header extends React.Component {
   }
 }
 
+class Main extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: this.props.data,
+    }
+  }
+
+
+
+  render(): React.ReactNode {
+    console.log(this.props.data.name)
+    return(
+    <main className="result__box">
+      <div className="result__left">
+        <img className="result__image" src = {this.props.data.sprite}></img>
+      </div>
+      <div className="result__right">
+        <div className="result__name">{this.props.data.name}</div>
+        <ul>
+          {
+            this.props.data.apiTypes && this.props.data.apiTypes.length ? (
+            this.props.data.apiTypes.map(item => (
+              <li key={item.name}>{item.name}</li>
+            ))
+            ):("")
+          }
+        </ul>
+
+      </div>
+    </main>
+    )
+  }
+}
+
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: ""
+    }
+  }
+  
+  handleHeaderClick = (newData) => {
+    this.setState({ 
+      data: newData
+    });
+  };
+
   render(){
     return (
       <>
-        <Header />
+        <Header onHeaderClick={this.handleHeaderClick} />
+        <Main data={this.state.data} type={this.state.type} />
       </>
     )
     }
