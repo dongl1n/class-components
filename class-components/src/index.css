@@ -1,0 +1,255 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+  white-space: normal;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0 !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  min-width: 200px;
+  margin: 0;
+  font-size: 2em;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  color: #ffffff;
+  background-color: #f80000;
+  border: 2px #f80000 solid;
+  border-radius: 8px;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #ff2600;
+}
+button:focus,
+button:focus-visible {
+  border-color: #8d1500;
+  background-color: #8d1500;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.header__pic {
+  width: 10vw;
+  min-width: 300px;
+}
+
+.header__name {
+  min-width: 200px;
+  font-size: 2em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.header__inctruction {
+  margin-top: 50px;
+  display: grid;
+  justify-content: center;
+  max-width: 830px;
+  min-width: 290px;
+  text-align: left;
+  /*grid-template-columns: repeat(auto-fill, minmax(140px, 350px));*/
+  max-width: 350px;
+  min-width: 140px;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  gap: 25px;
+
+  font-weight: 600;
+}
+
+.header__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 115px;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: #ff816a;
+  color: #ffffff;
+}
+
+.header__text-instruct {
+  margin-left: 5px;
+}
+
+.header__text-instruct > span {
+  margin-bottom: 1px;
+  border-bottom: 1px dotted #f80000;
+}
+
+.header__full {
+  display: none;
+  background-color: rgba(68, 76, 226, 0.5);
+}
+
+.header__id {
+  background-color: rgba(12, 129, 80, 0.5);
+}
+
+.header__type {
+  display: none;
+  background-color: rgba(1, 100, 214, 0.5);
+}
+
+.header__generation {
+  display: none;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.header__text-instruct {
+  width: 90%;
+}
+.header__image-full {
+  width: 96px;
+  height: 96px;
+  background-image: url(./assets/032.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 96px 96px;
+}
+
+.header__image-id {
+  width: 96px;
+  height: 96px;
+  background-image: url(./assets/281.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 96px 96px;
+}
+
+.header__image-type {
+  width: 96px;
+  height: 96px;
+  background-image: url(./assets/502.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 96px 96px;
+}
+
+.header__image-gen {
+  width: 96px;
+  height: 96px;
+  background-image: url(./assets/006.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 96px 96px;
+}
+
+.header__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  min-width: 220px;
+  margin-top: 30px;
+}
+
+.header__search {
+  width: 30vw;
+  min-width: 200px;
+  border: 2px #f80000 solid;
+  font-size: 1em;
+  padding: 0.67em 0px 0.67em 1em;
+  font-weight: 600;
+}
+
+.header__button {
+  background-image: url(./assets/loop.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  min-width: 20px;
+  height: 44px;
+}
+
+.result__box {
+  margin-top: 15px;
+}
+
+.result__card {
+  display: none;
+}
+
+.visible {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 5px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.result__name {
+  font-weight: 800;
+}
+
+.result__type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.result__type-img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.result__item:not(:first-child) {
+  margin-left: 5px;
+}
+
+.loading {
+  width: 64px;
+  height: 64px;
+  background-image: url(./assets/pikachu.gif);
+  background-size: 64px 64px;
+  opacity: 0.8;
+}
