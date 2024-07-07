@@ -15,6 +15,12 @@
   padding: 0 !important;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -30,7 +36,9 @@ h1 {
   font-size: 2em;
 }
 
-input {outline:none;}
+input {
+  outline: none;
+}
 
 button {
   color: #ffffff;
@@ -55,26 +63,26 @@ button:focus-visible {
   background-color: #8d1500;
 }
 
-.header{
+.header {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
 }
 
-.header__pic{
+.header__pic {
   width: 10vw;
   min-width: 300px;
 }
 
-.header__name{
+.header__name {
   min-width: 200px;
   font-size: 2em;
   font-weight: 500;
   text-transform: uppercase;
 }
 
-.header__inctruction{
+.header__inctruction {
   margin-top: 50px;
   display: grid;
   justify-content: center;
@@ -85,11 +93,11 @@ button:focus-visible {
   grid-auto-flow: row;
   grid-template-rows: auto auto;
   gap: 25px;
-  
+
   font-weight: 600;
 }
 
-.header__block{
+.header__block {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,38 +105,40 @@ button:focus-visible {
   border-radius: 8px;
   padding: 5px;
   background-color: #ff816a;
-  color: #ffffff
+  color: #ffffff;
 }
 
-.header__text-instruct{
+.header__text-instruct {
   margin-left: 5px;
 }
 
-.header__text-instruct > span{
+.header__text-instruct > span {
   margin-bottom: 1px;
   border-bottom: 1px dotted #f80000;
 }
 
-.header__full{
-  background-color: rgba(68, 76, 226, .5);
+.header__full {
+  background-color: rgba(68, 76, 226, 0.5);
 }
 
-.header__id{
+.header__id {
   background-color: rgba(12, 129, 80, 0.5);
 }
 
-.header__type{
+.header__type {
+  display: none;
   background-color: rgba(1, 100, 214, 0.5);
 }
 
-.header__generation{
+.header__generation {
+  display: none;
   background-color: rgba(255, 0, 0, 0.5);
 }
 
-.header__text-instruct{
+.header__text-instruct {
   width: 90%;
 }
-.header__image-full{
+.header__image-full {
   width: 96px;
   height: 96px;
   background-image: url(./assets/032.png);
@@ -137,7 +147,7 @@ button:focus-visible {
   background-size: 96px 96px;
 }
 
-.header__image-id{
+.header__image-id {
   width: 96px;
   height: 96px;
   background-image: url(./assets/281.png);
@@ -146,7 +156,7 @@ button:focus-visible {
   background-size: 96px 96px;
 }
 
-.header__image-type{
+.header__image-type {
   width: 96px;
   height: 96px;
   background-image: url(./assets/502.png);
@@ -155,7 +165,7 @@ button:focus-visible {
   background-size: 96px 96px;
 }
 
-.header__image-gen{
+.header__image-gen {
   width: 96px;
   height: 96px;
   background-image: url(./assets/006.png);
@@ -164,7 +174,7 @@ button:focus-visible {
   background-size: 96px 96px;
 }
 
-.header__form{
+.header__form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +183,7 @@ button:focus-visible {
   margin-top: 30px;
 }
 
-.header__search{
+.header__search {
   width: 30vw;
   min-width: 200px;
   border: 2px #f80000 solid;
@@ -182,11 +192,61 @@ button:focus-visible {
   font-weight: 600;
 }
 
-.header__button{
+.header__button {
   background-image: url(./assets/loop.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 16px 16px;
   min-width: 20px;
   height: 44px;
+}
+
+.result__box {
+  margin-top: 15px;
+}
+
+.result__card {
+  display: none;
+}
+
+.visible {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 5px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.result__name {
+  font-weight: 800;
+}
+
+.result__type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.result__type-img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.result__item:not(:first-child) {
+  margin-left: 5px;
+}
+
+.loading {
+  width: 64px;
+  height: 64px;
+  background-image: url(./assets/pikachu.gif);
+  background-size: 64px 64px;
+  opacity: 0.8;
 }
