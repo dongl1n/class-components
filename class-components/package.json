@@ -9,9 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format:fix": "prettier --write --extension .ts ./src",
     "preview": "vite preview",
-    "precommit": "lint-staged",
-    "lint-staged": {
-      "*.tsx": ["prettier --write"]}
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "react": "^18.3.1",
